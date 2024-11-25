@@ -1,14 +1,14 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { Card, CardContent } from "@/src/presentation/components/ui/card";
+'use client';
+import { Card, CardContent } from '@/src/presentation/components/ui/card';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   type CarouselApi,
-} from "@/src/presentation/components/ui/carousel";
-import Image from "next/image";
-import { testimonials } from "@/src/presentation/constant/testimonials";
+} from '@/src/presentation/components/ui/carousel';
+import { testimonials } from '@/src/presentation/constant/testimonials';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 function TestimonialSection() {
   const [api, setApi] = useState<CarouselApi>();
@@ -23,7 +23,7 @@ function TestimonialSection() {
     setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap());
 
-    api.on("select", () => {
+    api.on('select', () => {
       setCurrent(api.selectedScrollSnap());
     });
   }, [api]);
@@ -60,7 +60,7 @@ function TestimonialSection() {
                           className="rounded-full w-[50px] h-[50px] object-cover"
                         />
                         <p className="font-semibold text-[#9AE662] pt-4 text-lg">
-                         {item.name}
+                          {item.name}
                         </p>
                         <span className="text-gray-500 text-sm">
                           {item.role}
@@ -79,7 +79,7 @@ function TestimonialSection() {
             <button
               key={index}
               className={`w-2 h-2 rounded-full transition-all ${
-                index === current ? "bg-[#9AE662] w-4" : "bg-gray-500"
+                index === current ? 'bg-[#9AE662] w-4' : 'bg-gray-500'
               }`}
               onClick={() => api?.scrollTo(index)}
               aria-label={`Go to slide ${index + 1}`}

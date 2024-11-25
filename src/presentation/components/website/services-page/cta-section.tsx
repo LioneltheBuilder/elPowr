@@ -1,5 +1,5 @@
-import { Button } from "@/src/presentation/components/ui/button";
-import Link from "next/link";
+import { Button } from '@/src/presentation/components/ui/button';
+import Link from 'next/link';
 
 export default function CTASection() {
   return (
@@ -21,7 +21,9 @@ export default function CTASection() {
                 size="lg"
                 className="bg-[#9AE662] text-black hover:bg-[#9AE662]/90"
               >
-                <Link href="https://discord.gg/PzS4n2XW" target="_blank">Get In Touch</Link>
+                <Link href="https://discord.gg/PzS4n2XW" target="_blank">
+                  Get In Touch
+                </Link>
               </Button>
             </div>
           </div>

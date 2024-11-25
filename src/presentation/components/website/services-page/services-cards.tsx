@@ -1,16 +1,11 @@
-import { Badge } from "@/src/presentation/components/ui/badge";
-import { Card, CardContent } from "@/src/presentation/components/ui/card";
-import {
-  BarChart3,
-  Code2,
-  MicVocal,
-} from "lucide-react";
-import Image from "next/image";
-import React from "react";
+import { Badge } from '@/src/presentation/components/ui/badge';
+import { Card, CardContent } from '@/src/presentation/components/ui/card';
+import { BarChart3, Code2, MicVocal } from 'lucide-react';
+import Image from 'next/image';
 
-import Service1 from "@/public/services/web-dev.jpg";
-import Service2 from "@/public/services/mark.jpg";
-import Service3 from "@/public/services/conference.jpg";
+import Service3 from '@/public/services/conference.jpg';
+import Service2 from '@/public/services/mark.jpg';
+import Service1 from '@/public/services/web-dev.jpg';
 
 function ServicesCard() {
   return (
@@ -156,14 +151,28 @@ function ServicesCard() {
               we handle it all.
             </p>
             <div className="flex flex-wrap gap-2 mb-6">
-              <Badge variant="secondary" className="bg-purple-600 text-purple-300 hover:bg-purple-700">Conferences and Workshops</Badge>
-              <Badge variant="secondary" className="bg-purple-600 text-purple-300 hover:bg-purple-700">Networking Events</Badge>
-              <Badge variant="secondary" className="bg-purple-600 text-purple-300 hover:bg-purple-700">Creative Activations</Badge>
+              <Badge
+                variant="secondary"
+                className="bg-purple-600 text-purple-300 hover:bg-purple-700"
+              >
+                Conferences and Workshops
+              </Badge>
+              <Badge
+                variant="secondary"
+                className="bg-purple-600 text-purple-300 hover:bg-purple-700"
+              >
+                Networking Events
+              </Badge>
+              <Badge
+                variant="secondary"
+                className="bg-purple-600 text-purple-300 hover:bg-purple-700"
+              >
+                Creative Activations
+              </Badge>
             </div>
           </div>
         </CardContent>
       </Card>
-
     </div>
   );
 }

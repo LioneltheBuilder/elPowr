@@ -1,9 +1,8 @@
-import { Button } from "@/src/presentation/components/ui/button";
-import { Check } from "lucide-react";
-import React from "react";
-import Image from "next/image";
-import Example from "@/public/additional/example2.jpg";
-import Link from "next/link";
+import Example from '@/public/additional/example2.jpg';
+import { Button } from '@/src/presentation/components/ui/button';
+import { Check } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export function CommunitySection() {
   return (
@@ -49,12 +48,12 @@ export function CommunitySection() {
               </span>
             </li>
           </ul>
-          <div> 
-          <Link href="/community">
-            <Button className="h-10 bg-[#9AE662] text-black hover:bg-[#9AE662]/90">
-              Become a Member Today
-            </Button>
-          </Link>
+          <div>
+            <Link href="/community">
+              <Button className="h-10 bg-[#9AE662] text-black hover:bg-[#9AE662]/90">
+                Become a Member Today
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

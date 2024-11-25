@@ -3,7 +3,7 @@ import { BadgeCheck } from "lucide-react";
 import { Button } from "@/src/presentation/components/ui/button";
 import Image from "next/image";
 import Example from "@/public/additional/example1.jpg";
-import Link from "next/link";
+import Link from 'next/link';
 
 export function AboutSection() {
   const corePillars = [

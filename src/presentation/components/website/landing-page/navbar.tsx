@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { Button } from "@/src/presentation/components/ui/button";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Button } from '@/src/presentation/components/ui/button';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export const Navbar = () => {
   const path = usePathname();
