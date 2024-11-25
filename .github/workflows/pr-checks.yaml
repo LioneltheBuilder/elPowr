@@ -29,8 +29,9 @@ jobs:
       - name: Run type check
         run: npm run typecheck
 
-      - name: Start Supabase local development setup
-        run: supabase db start
+      # Removed the Supabase-related setup step
+      # - name: Start Supabase local development setup
+      #   run: supabase db start
 
       - name: Verify generated types are checked in
         run: |
