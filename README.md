@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Digital Builders
+[![Screenshot-2024-11-25-132620.png](https://i.postimg.cc/fbHSCrMr/Screenshot-2024-11-25-132620.png)](https://postimg.cc/kVb5Xw6Q)
 
-## Getting Started
+## Tech Stack
 
-First, run the development server:
+- **Front End:**  React, Next JS app Route, ShadCn
+- **Back End:**   Supabase, Next JS SSR
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Folder Architecture: Clean Architecture
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Applications**
+- The Applications layer contains the use cases or business logic that orchestrate operations between the domain and other layers.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Domain**
+- The Domain layer contains core business logic and rules, including entities and interfaces.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Infrastructure**
+- The Infrastructure layer contains implementation details like database interactions, API clients, and external service integrations (e.g., Supabase).
 
-## Learn More
+**Presentation**
+- The Presentation layer contains UI components, pages, and controllers to handle user input and output.
 
-To learn more about Next.js, take a look at the following resources:
+## Summary
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| **Folder**          | **Responsibility**                                                                                              | **Examples**                                |
+|----------------------|--------------------------------------------------------------------------------------------------------------|--------------------------------------------|
+| **Applications**     | High-level business logic and workflows (e.g., use cases).                                                   | `createUser.ts`, `fetchPosts.ts`           |
+| **Domain**           | Core business models, rules, and interfaces.                                                                 | `User.ts`, `UserRepository.ts`             |
+| **Infrastructure**   | Implementation of external dependencies like Supabase and APIs.                                              | `SupabaseUserRepository.ts`, `supabaseClient.ts` |
+| **Presentation**     | UI components and pages for user interaction.                                                                | `UserForm.tsx`, `create.tsx`               |
