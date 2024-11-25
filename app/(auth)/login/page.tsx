@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { useRouter } from 'next/navigation';
 import Link from "next/link";
-import Image from "next/image";
 
 import * as z from "zod";
 import { useForm } from "react-hook-form";
@@ -18,7 +17,6 @@ const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{6,
 
 function Login() {
   const router = useRouter();
-  const [loginError, setLoginError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [loginSuccess, setLoginSuccess] = useState<string | null>(null);
 
@@ -59,9 +57,9 @@ function Login() {
     formState: { errors, isValid },
   } = form;
 
-  const onSubmit = async (user: z.infer<typeof schema>) => {
+  const onSubmit = async () => {
     setIsLoading(true);
-    setLoginError(null);
+
     setLoginSuccess(null);
     try {
       
@@ -70,7 +68,6 @@ function Login() {
       }, 2000); 
     } catch (error) {
       console.error("Error logging in:", error);
-      setLoginError(error instanceof Error ? error.message : String(error));
     } finally {
       setIsLoading(false);
     }

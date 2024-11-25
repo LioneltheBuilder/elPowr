@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/src/presentation/components/ui/button";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

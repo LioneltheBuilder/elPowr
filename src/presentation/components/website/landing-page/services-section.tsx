@@ -1,5 +1,4 @@
 import { User2, Settings2, ShieldCheck, CreditCard, Cloud, BarChart3 } from 'lucide-react'
-import { Badge } from "@/components/ui/badge"
 
 interface FeatureCardProps {
   icon: React.ReactNode

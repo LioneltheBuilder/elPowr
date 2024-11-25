@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Check } from "lucide-react";
+
 import Image from "next/image";
 import Discord from "@/public/landing-page/discord.svg";
 import Youtube from "@/public/landing-page/youtube.svg";
@@ -52,25 +52,33 @@ export const HeroSection = () => {
         <div className="flex flex-wrap justify-center gap-6 text-sm text-white/60">
           <div className="flex flex-col gap-3 items-center">
             <div className="flex -space-x-2 ">
-              <img
+              <Image
                 alt=""
                 src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                 className="w-7 h-7  inline-block size-9 rounded-full ring-2 ring-[#9AE662]"
+                width={40}
+                height={40}
               />
-              <img
+              <Image
                 alt=""
                 src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                 className="w-7 h-7  inline-block size-9 rounded-full ring-2 ring-[#9AE662]"
+                width={40}
+                height={40}
               />
-              <img
+              <Image
                 alt=""
                 src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
                 className="w-7 h-7  inline-block size-9 rounded-full ring-2 ring-[#9AE662]"
+                width={40}
+                height={40}
               />
-              <img
+              <Image
                 alt=""
                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                 className="w-7 h-7  inline-block size-9 rounded-full ring-2 ring-[#9AE662]"
+                width={40}
+                height={40}
               />
             </div>
             <p>328+ Members</p>

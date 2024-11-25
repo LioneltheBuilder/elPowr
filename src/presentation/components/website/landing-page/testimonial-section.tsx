@@ -1,5 +1,4 @@
 "use client";
-import Member1 from "@/public/member1.png";
 import React, { useEffect, useState } from "react";
 import { Card, CardContent } from "@/src/presentation/components/ui/card";
 import {

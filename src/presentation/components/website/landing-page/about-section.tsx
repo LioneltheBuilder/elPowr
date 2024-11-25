@@ -1,7 +1,6 @@
 "use client";
-import { BadgeCheck, Check, CheckCheck } from "lucide-react";
+import { BadgeCheck } from "lucide-react";
 import { Button } from "@/src/presentation/components/ui/button";
-import { Card } from "@/src/presentation/components/ui/card";
 import Image from "next/image";
 import Example from "@/public/additional/example1.jpg";
 import Link from "next/link";
@@ -42,7 +41,7 @@ export function AboutSection() {
             </h2>
 
             <p className="text-gray-400">
-              We are here to help you build. Whether you're a business seeking
+              We are here to help you build. Whether you&apos;re a business seeking
               digital solutions, a developer ready to break into tech, or
               someone eager to learn and grow, Digital Builders is your partner
               for success.
