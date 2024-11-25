@@ -15,9 +15,6 @@ jobs:
         with:
           version: latest
 
-      - name: Push Supabase Migrations
-        run: supabase db push
-
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
