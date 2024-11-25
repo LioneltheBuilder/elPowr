@@ -29,9 +29,8 @@ jobs:
       - name: Run type check
         run: npm run typecheck
 
-      # Removed the Supabase-related setup step
-      # - name: Start Supabase local development setup
-      #   run: supabase db start
+      - name: Start Supabase local development setup
+        run: supabase db start
 
       - name: Verify generated types are checked in
         run: |
@@ -50,6 +49,3 @@ jobs:
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
-          STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          ASSISTANT_ID: ${{ secrets.ASSISTANT_ID }}
