@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
-import { useRouter } from 'next/navigation';
+import { supabase } from "@/src/infrastructure/services/supabase/client";
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
+import { useState } from "react";
 
-import * as z from "zod";
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
 
 import { Button } from "@/src/presentation/components/ui/button";
 import { Input } from "@/src/presentation/components/ui/input";
@@ -57,16 +58,22 @@ function Login() {
     formState: { errors, isValid },
   } = form;
 
-  const onSubmit = async () => {
+  const onSubmit = async (data: z.infer<typeof schema>) => {
     setIsLoading(true);
-
     setLoginSuccess(null);
+    
     try {
-      
-      setTimeout(() => {
-        router.push("/home");
-      }, 2000); 
-    } catch (error) {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: data.email,
+        password: data.password,
+      });
+
+      if (error) throw error;
+
+      setLoginSuccess('Login successful!');
+      router.push('/home');
+    } catch (error: any) {
+      setLoginSuccess(error.message);
     } finally {
       setIsLoading(false);
     }
