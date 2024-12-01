@@ -1,7 +1,7 @@
 import { MessageSquare, Users } from 'lucide-react';
 import Image from 'next/image';
-import { Button } from '../../ui/button';
 import Link from 'next/link';
+import { Button } from '../../ui/button';
 
 export default function MemberSection() {
   return (
@@ -40,15 +40,15 @@ export default function MemberSection() {
                   </p>
                 </div>
               </div>
-              <div className='mt-4'>
-              <Link href="https://discord.gg/PzS4n2XW" target="_blank" >
-                <Button
-                  size="lg"
-                  className="bg-[#9AE662] text-black hover:bg-[#9AE662]/90"
-                >
-                  Join Our Discord
-                </Button>
-              </Link>
+              <div className="mt-4">
+                <Link href="https://discord.gg/PzS4n2XW" target="_blank">
+                  <Button
+                    size="lg"
+                    className="bg-[#9AE662] text-black hover:bg-[#9AE662]/90"
+                  >
+                    Join Our Discord
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@ export default function MemberSection() {
 
         <div className="lg:order-1">
           <Image
-            src="/community1.jpg"
+            src="/community/community1.jpg"
             alt="Team collaboration"
             width={400}
             height={300}

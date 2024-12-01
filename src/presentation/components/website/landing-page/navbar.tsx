@@ -27,7 +27,7 @@ export const Navbar = () => {
                 alt="Digital Builder"
                 width={50}
                 height={50}
-                src="/logo.png"
+                src="/community/logo.png"
                 className=""
               />
               <span className="font-bold text-white text-lg">

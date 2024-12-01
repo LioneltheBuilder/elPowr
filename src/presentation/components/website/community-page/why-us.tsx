@@ -12,7 +12,7 @@ export default function WhyUsSection() {
             {/* Profile and Graph */}
             <div className="rounded-lg p-4 border border-dashed border-gray-500 bg-[#212121]/50">
               <Image
-                src="/why-us.jpg"
+                src="/community/why-us.jpg"
                 alt="Team collaboration"
                 width={400}
                 height={300}
@@ -54,9 +54,7 @@ export default function WhyUsSection() {
               </span>
             </li>
           </ul>
-          <Button
-            className="bg-[#9AE662] text-black hover:bg-[#9AE662]/90"
-          >
+          <Button className="bg-[#9AE662] text-black hover:bg-[#9AE662]/90">
             More Details
           </Button>
         </div>
