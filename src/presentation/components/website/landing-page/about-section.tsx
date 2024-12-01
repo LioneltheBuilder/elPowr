@@ -1,26 +1,26 @@
-"use client";
-import { BadgeCheck } from "lucide-react";
-import { Button } from "@/src/presentation/components/ui/button";
-import Image from "next/image";
-import Example from "@/public/additional/example1.jpg";
+'use client';
+import Example from '@/public/additional/example1.jpg';
+import { Button } from '@/src/presentation/components/ui/button';
+import { BadgeCheck } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export function AboutSection() {
   const corePillars = [
     {
       id: 1,
-      title: "Web Development",
-      desc: "From websites to scalable applications, we bring your vision to life.",
+      title: 'Web Development',
+      desc: 'From websites to scalable applications, we bring your vision to life.',
     },
     {
       id: 2,
-      title: "Marketing Solutions",
-      desc: "Grow your brand with data-driven strategies.",
+      title: 'Marketing Solutions',
+      desc: 'Grow your brand with data-driven strategies.',
     },
     {
       id: 3,
-      title: "Community & Events",
-      desc: "Learn, network, and thrive with our conferences, workshops, and activations.",
+      title: 'Community & Events',
+      desc: 'Learn, network, and thrive with our conferences, workshops, and activations.',
     },
   ];
 
@@ -35,16 +35,16 @@ export function AboutSection() {
             </div>
 
             <h2 className="text-4xl md:text-4xl  leading-tight">
-              <span className="text-[#9AE662]">Empowering Growth</span>{" "}
-              Innovation and{" "}
+              <span className="text-[#9AE662]">Empowering Growth</span>{' '}
+              Innovation and{' '}
               <span className="text-[#9AE662]"> Collaboration</span>
             </h2>
 
             <p className="text-gray-400">
-              We are here to help you build. Whether you&apos;re a business seeking
-              digital solutions, a developer ready to break into tech, or
-              someone eager to learn and grow, Digital Builders is your partner
-              for success.
+              We are here to help you build. Whether you&apos;re a business
+              seeking digital solutions, a developer ready to break into tech,
+              or someone eager to learn and grow, Digital Builders is your
+              partner for success.
             </p>
             <ul className=" flex flex-col gap-4 py-4">
               {corePillars.map((item) => (
@@ -58,10 +58,10 @@ export function AboutSection() {
               ))}
             </ul>
 
-           <Link href="/about">
-           <Button className="bg-[#9AE662] text-black hover:bg-[#9AE662]/90">
-              Discover More
-            </Button>
+            <Link href="/about">
+              <Button className="bg-[#9AE662] text-black hover:bg-[#9AE662]/90">
+                Discover More
+              </Button>
             </Link>
           </div>
 
