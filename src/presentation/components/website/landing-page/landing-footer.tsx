@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import {  Instagram, Linkedin,  Twitter, Youtube } from 'lucide-react';
+import Image from 'next/image';
 
 export function Footer() {
   return (
@@ -9,12 +10,17 @@ export function Footer() {
           {/* Brand Section */}
           <div className="space-y-4">
             <Link href="/" className="text-2xl font-bold flex items-center">
-              <span className="text-green-400 mr-1">×</span> DB
+            <Image
+                alt="Digital Builder"
+                width={50}
+                height={50}
+                src="/logo.png"
+                className=""
+              /> 
+              <span className="font-bold text-white text-lg">
+                Digital Builder
+              </span>
             </Link>
-            <p className="text-gray-400 max-w-xs">
-              Experience digital transformation like never before with our
-              comprehensive solutions.
-            </p>
             <div className="flex space-x-4">
               <Link
                 href="https://www.instagram.com/digitalbuilders_/"
@@ -49,8 +55,8 @@ export function Footer() {
 
           {/* Pages Section */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Page</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-semibold">Browse</h3>
+            <ul className="flex gap-4">
               <li>
                 <Link
                   href="/"
@@ -81,14 +87,6 @@ export function Footer() {
                   className="text-gray-400 hover:text-green-400 transition-colors"
                 >
                   Community
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-gray-400 hover:text-green-400 transition-colors"
-                >
-                  Blog
                 </Link>
               </li>
             </ul>
