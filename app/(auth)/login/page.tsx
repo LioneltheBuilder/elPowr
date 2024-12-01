@@ -12,6 +12,7 @@ import * as z from "zod";
 import { Button } from "@/src/presentation/components/ui/button";
 import { Input } from "@/src/presentation/components/ui/input";
 import { Label } from "@/src/presentation/components/ui/label";
+import Image from "next/image";
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{6,}$/;
@@ -81,14 +82,15 @@ function Login() {
 
   return (
     <div className="w-full h-[100vh] lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[100vh]">
-      <div className="hidden bg-muted lg:block ">
-        {/* <Image
-          src={Bghero}
+      <div className="hidden bg-muted lg:block relative">
+        <Image
+          src='/community/login.jpg'
           alt="Image"
           width="1920"
           height="1080"
           className="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
-        /> */}
+        />
+        <div className="bg-black/40 absolute top-0 bottom-0 w-full h-full"/>
       </div>
 
       <div className="flex items-center justify-center py-12 md:h-full">
@@ -97,15 +99,15 @@ function Login() {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="grid gap-2 text-center text-white">
-            <div className="flex justify-center py-5">
-              {/* <Image
-                src={Logo}
+            <Link href='/' className="flex justify-center py-5">
+              <Image
+                src='/community/logo.png'
                 alt="Logo"
-                width={250}
-                height={260}
+                width={100}
+                height={100}
                 className="object-fit"
-              /> */}
-            </div>
+              />
+            </Link>
             <h1 className="text-2xl font-bold">
             Access Your Digital Builders Dashboard
             </h1>

@@ -29,7 +29,7 @@ function TestimonialSection() {
   }, [api]);
 
   return (
-    <section className="container mx-auto px-4 pt-24">
+    <section className="max-w-screen-xl mx-auto px-4 relative py-12">
       <div className="space-y-6">
         <div className="flex flex-col gap-4 justify-center items-center">
           <div className="inline-flex items-center rounded-full border border-[#9AE662]/20 bg-[#9AE662]/10 px-3 py-1 text-sm text-[#9AE662]">
