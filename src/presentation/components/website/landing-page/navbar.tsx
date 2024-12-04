@@ -31,7 +31,7 @@ export const Navbar = () => {
                 className=""
               />
               <span className="font-bold text-white text-lg">
-                Digital Builder
+                Digital Builders
               </span>
             </div>
 
