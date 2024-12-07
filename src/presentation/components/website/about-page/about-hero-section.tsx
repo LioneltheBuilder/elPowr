@@ -8,14 +8,12 @@ export default function AboutHeroSection() {
         {/* Hero Section */}
         <section className="text-center space-y-6 pt-12">
           <h1 className="text-4xl md:text-6xl leading-tight tracking-tighter">
-            <span className="text-[#9AE662]">Empowering</span> Teams with
-            Innovative
+            <span className="text-[#9AE662]">Empowering</span> Developers and
             <br />
-            Project <span className="text-[#9AE662]">Management</span> Solutions
+            <span className="text-[#9AE662]">Businesses</span> to Thrive
           </h1>
           <p className="text-gray-400 max-w-3xl mx-auto">
-            Discover Our Story, Mission, and Commitment to Streamlining Project
-            Workflows
+            Discover Our Story, Mission, and Commitment to Building the Future of Tech
           </p>
         </section>
 
@@ -26,9 +24,9 @@ export default function AboutHeroSection() {
               <span className="mr-1">+</span> About Us
             </div>
             <h2 className="text-3xl md:text-4xl leading-tight">
-              <span className="text-[#9AE662]">Revolutionizing</span> Project
+              <span className="text-[#9AE662]">Building</span> the Future
               <br />
-              Management with Saasta
+              Together
             </h2>
             <div>
               <Link href="/services" className="pt-4">
@@ -41,29 +39,25 @@ export default function AboutHeroSection() {
 
           <div className="space-y-6 text-gray-400">
             <p>
-              At Saasta, our journey began with a simple but powerful idea: to
-              revolutionize project management for teams of all sizes.
-              Frustrated by the complexities and limitations of existing
-              solutions, we set out to create a platform that would empower
-              teams to collaborate more effectively, streamline workflows, and
-              drive success.
+              At Digital Builders, our journey began with a vision to create a 
+              thriving community where developers, businesses, and tech enthusiasts 
+              could come together to learn, grow, and innovate.
             </p>
 
             <p>
-              With a team of passionate developers and project management
-              experts, we embarked on a journey of innovation and iteration. We
-              listened to the needs of our users, gathered feedback, and
-              continuously refined our platform to meet the evolving demands of
-              modern businesses.
+              With a team of passionate developers, designers, and industry experts, 
+              we&apos;ve built a platform that combines practical education, networking 
+              opportunities, and real-world project experience. Our community-driven 
+              approach ensures that everyone has the support they need to succeed in 
+              the ever-evolving tech landscape.
             </p>
 
             <p>
-              Today, Saasta stands as a testament to our commitment to
-              excellence and our relentless pursuit of improvement. We take
-              pride in providing a solution that not only meets the needs of our
-              users but exceeds their expectations. As we continue to grow and
-              evolve, our dedication to empowering teams with innovative project
-              management solutions remains unwavering.
+              Today, Digital Builders stands as a testament to the power of 
+              community and collaboration. Whether you&apos;re a self-taught developer 
+              looking to break into tech, or a business seeking digital transformation, 
+              our ecosystem provides the resources, connections, and opportunities 
+              you need to thrive.
             </p>
           </div>
         </section>

@@ -16,8 +16,8 @@ export const team = [
     instgram: 'https://www.instagram.com/lionelthebldr/',
   },
   {
-    name: 'Sanelle Lasana',
-    role: 'Business Analyst ',
+    name: 'Sanele Lasana',
+    role: 'COO / Co-Founder',
     image: Member2,
     bio: 'Sanelle bridges technology, entrepreneurship, and social impact with strategy and innovation.',
     linkedin: 'https://www.linkedin.com/in/sanelelasana/',
