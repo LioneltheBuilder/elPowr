@@ -1,11 +1,10 @@
-import React from "react";
 
 
-import Image from "next/image";
+import Additional1 from "@/public/additional/additional1.jpg";
 import Discord from "@/public/landing-page/discord.svg";
 import Youtube from "@/public/landing-page/youtube.svg";
-import Additional1 from "@/public/additional/additional1.jpg";
 import { Button } from "@/src/presentation/components/ui/button";
+import Image from "next/image";
 import Link from "next/link";
 
 export const HeroSection = () => {
@@ -101,7 +100,7 @@ export const HeroSection = () => {
               Learn About Our Services
             </Button>
           </Link>
-          <Link href="https://discord.gg/PzS4n2XW" target="_blank">
+          <Link href="https://discord.gg/9HD4gyP3" target="_blank">
             <Button
               className="h-10 gap-3 border border-gray-400 hover:text-[#9AE662] text-white hover:border-[#9AE662] hover:bg-transparent"
               variant="ghost"

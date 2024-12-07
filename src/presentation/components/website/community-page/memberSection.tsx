@@ -41,7 +41,7 @@ export default function MemberSection() {
                 </div>
               </div>
               <div className="mt-4">
-                <Link href="https://discord.gg/PzS4n2XW" target="_blank">
+                <Link href="https://discord.gg/9HD4gyP3" target="_blank">
                   <Button
                     size="lg"
                     className="bg-[#9AE662] text-black hover:bg-[#9AE662]/90"

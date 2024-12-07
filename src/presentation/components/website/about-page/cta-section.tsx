@@ -13,7 +13,7 @@ export default function CtaSection() {
             Learn how you can become part of Digital Builders
           </p>
           <div>
-            <Link href="https://discord.gg/PzS4n2XW" target="_blank">
+            <Link href="https://discord.gg/9HD4gyP3" target="_blank">
               <Button className="bg-[#9AE662] text-black hover:bg-[#9AE662]/90">
                 Get Started Today
               </Button>
