@@ -28,3 +28,5 @@
 | **Domain**           | Core business models, rules, and interfaces.                                                                 | `User.ts`, `UserRepository.ts`             |
 | **Infrastructure**   | Implementation of external dependencies like Supabase and APIs.                                              | `SupabaseUserRepository.ts`, `supabaseClient.ts` |
 | **Presentation**     | UI components and pages for user interaction.                                                                | `UserForm.tsx`, `create.tsx`               |
+# blhackathon
+not your typical hackathon
