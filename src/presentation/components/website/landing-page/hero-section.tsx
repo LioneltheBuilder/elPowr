@@ -32,11 +32,12 @@ export const HeroSection = () => {
 
       <div className="mt-16">
         <Image
-          src="/blhackathon/header.jpg"
-          alt="Hackathon"
+          src="/community/community1.jpg"
+          alt="Hackathon Event"
           width={1200}
           height={600}
-          className="rounded-lg border border-[#29d1e0]/10"
+          className="rounded-lg border border-[#29d1e0]/10 object-cover h-[500px] w-full"
+          priority
         />
       </div>
     </div>

@@ -9,16 +9,16 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
-            <div className="text-2xl font-bold flex items-center">
+            <div className="text-2xl font-bold flex items-center gap-2">
               <Image
-                alt="BL Hackathon"
+                alt="Hackathon"
                 width={50}
                 height={50}
-                src="/hackathon/logo.png"
+                src="/community/BLhackathon_Icon_COLOR (1).png"
                 className=""
               />
               <span className="font-bold text-white text-lg">
-                BL Hackathon
+              Hackathon
               </span>
             </div>
             <div className="flex space-x-4">
