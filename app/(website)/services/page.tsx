@@ -3,7 +3,6 @@ import { Navbar } from "@/src/presentation/components/website/landing-page/navba
 import CTASection from "@/src/presentation/components/website/services-page/cta-section";
 import ServicesCard from "@/src/presentation/components/website/services-page/services-cards";
 import ServicesHeroSection from "@/src/presentation/components/website/services-page/services-hero-section";
-import React from "react";
 
 function page() {
   return (

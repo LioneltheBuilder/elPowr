@@ -6,7 +6,6 @@ import WhyUsSection from "@/src/presentation/components/website/community-page/w
 import { Footer } from "@/src/presentation/components/website/landing-page/landing-footer";
 import { Navbar } from "@/src/presentation/components/website/landing-page/navbar";
 import TestimonialSection from "@/src/presentation/components/website/landing-page/testimonial-section";
-import React from "react";
 
 function page() {
   return (

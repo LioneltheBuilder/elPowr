@@ -1,20 +1,16 @@
-import { CommunitySection } from "@/src/presentation/components/website/landing-page/community-section";
 import { AboutSection } from "@/src/presentation/components/website/landing-page/about-section";
 import { HeroSection } from "@/src/presentation/components/website/landing-page/hero-section";
-import TestimonialSection from "@/src/presentation/components/website/landing-page/testimonial-section";
-import CallToAction from "@/src/presentation/components/website/landing-page/callToAction";
-import { Navbar } from "@/src/presentation/components/website/landing-page/navbar";
 import { Footer } from "@/src/presentation/components/website/landing-page/landing-footer";
+import { Navbar } from "@/src/presentation/components/website/landing-page/navbar";
 
 export default function Home() {
   return (
-    <div className="">
-        <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <CommunitySection />
-      <TestimonialSection />
-      <CallToAction />
+    <div className="bg-black min-h-screen">
+      <Navbar />
+      <main>
+        <HeroSection />
+        <AboutSection />
+      </main>
       <Footer />
     </div>
   );
