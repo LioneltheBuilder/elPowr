@@ -5,8 +5,8 @@ import Link from "next/link";
 export function Footer() {
   return (
     <footer className="bg-black text-white border-t border-white/10">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="max-w-screen-xl mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="text-2xl font-bold flex items-center gap-2">
@@ -18,12 +18,12 @@ export function Footer() {
                 className=""
               />
               <span className="font-bold text-white text-lg">
-              Hackathon
+                Hackathon
               </span>
             </div>
             <div className="flex space-x-4">
               <Link
-                href="#"
+                href="https://www.instagram.com/bl.hackathon/"
                 className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors"
                 target="_blank"
               >
@@ -47,7 +47,7 @@ export function Footer() {
           </div>
 
           {/* Contact Section */}
-          <div className="space-y-4">
+          <div className="space-y-4 md:text-right">
             <h3 className="text-lg font-semibold">Contact Us</h3>
             <ul className="space-y-2">
               <li className="text-gray-400">
