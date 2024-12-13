@@ -5,7 +5,7 @@ export const Navbar = () => {
     <nav className="border-b border-white/10">
       <div className="max-w-screen-xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center">
             <div className="text-2xl font-medium tracking-tight">
               <span className="text-[#29d1e0]">{`{`}</span>
               <span className="text-[#29d1e0]">bl</span>
@@ -16,7 +16,7 @@ export const Navbar = () => {
             </div>
           </div>
 
-          <div className="items-center space-x-4 hidden md:flex">
+          <div className="items-center hidden md:flex">
             <Button className="bg-[#29d1e0] text-[#202731] hover:bg-[#29d1e0]/90 font-medium">
               Register Now
             </Button>
