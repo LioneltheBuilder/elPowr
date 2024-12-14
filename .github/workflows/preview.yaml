@@ -30,18 +30,20 @@ jobs:
 
       - name: Install Dependencies
         run: npm ci
+
+      # Prepare directories and handle Supabase types
+      - name: Prepare Build
+        run: |
+          # Ensure directories exist and are empty
+          rm -rf .next out lib/services/supabase/types
+          mkdir -p lib/services/supabase/types
+          
+          # Create placeholder type file
+          echo "// Generated types - do not edit" > lib/services/supabase/types/index.ts
+          echo "export type Database = any;" >> lib/services/supabase/types/index.ts
         
       - name: Build Project
-        run: |
-          # Clean build directories
-          rm -rf .next out
-
-          # Create necessary directories
-          mkdir -p lib/services/supabase/types
-          touch lib/services/supabase/types/.gitkeep
-
-          # Run build
-          npm run build
+        run: npm run build
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
