@@ -1,4 +1,5 @@
 import { Button } from "../../ui/button";
+import { Logo } from "../common/Logo";
 
 export const Navbar = () => {
   return (
@@ -6,14 +7,7 @@ export const Navbar = () => {
       <div className="max-w-screen-xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <div className="text-2xl font-medium tracking-tight">
-              <span className="text-[#29d1e0]">{`{`}</span>
-              <span className="text-[#29d1e0]">bl</span>
-              <span className="text-[#29d1e0]">{`}`}</span>
-              <span className="text-[#a2d719]">hack</span>
-              <span className="text-[#f29b1b]">athon</span>
-              <span className="text-[#ee0672]">;</span>
-            </div>
+            <Logo className="text-2xl" />
           </div>
 
           <div className="items-center hidden md:flex">

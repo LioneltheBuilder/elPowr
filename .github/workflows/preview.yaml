@@ -29,7 +29,10 @@ jobs:
           echo 'org_id = "${{ vars.SUPABASE_ORG_ID }}"' >> supabase/config.toml
 
       - name: Install Dependencies
-        run: npm ci
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.safecrlf false
+          npm ci --no-audit --ignore-scripts
 
       # Prepare directories and handle Supabase types
       - name: Prepare Build
@@ -42,11 +45,20 @@ jobs:
           echo "// Generated types - do not edit" > lib/services/supabase/types/index.ts
           echo "export type Database = any;" >> lib/services/supabase/types/index.ts
         
+      - name: Run Lint
+        run: npm run lint
+
+      - name: Run Type Check
+        run: npm run typecheck
+        
       - name: Build Project
-        run: npm run build
+        run: |
+          # Temporarily disable Husky
+          HUSKY=0 CI=true npm run build
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          SKIP_ENV_VALIDATION: true
         
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v25
