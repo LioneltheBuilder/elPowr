@@ -20,8 +20,14 @@ jobs:
         with:
           version: latest
 
+      - name: Create Supabase config
+        run: |
+          mkdir -p supabase
+          echo 'project_id = "${{ vars.SUPABASE_PROJECT_ID }}"' > supabase/config.toml
+          echo 'org_id = "${{ vars.SUPABASE_ORG_ID }}"' >> supabase/config.toml
+
       - name: Start Supabase local development setup
-        run: supabase init && supabase start
+        run: supabase start
           
       - name: Install Dependencies
         run: npm install

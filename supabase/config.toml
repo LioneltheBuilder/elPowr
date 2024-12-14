@@ -1,0 +1,8 @@
+# Project Config
+project_id = "your-project-id"
+org_id = "your-org-id"
+
+[api]
+# Port to use for the API URL.
+port = 54321
+schemes = ["http"] 
