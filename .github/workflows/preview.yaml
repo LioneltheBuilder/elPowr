@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for git commands
       
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -26,14 +28,18 @@ jobs:
           echo 'project_id = "${{ vars.SUPABASE_PROJECT_ID }}"' > supabase/config.toml
           echo 'org_id = "${{ vars.SUPABASE_ORG_ID }}"' >> supabase/config.toml
 
-      - name: Start Supabase local development setup
-        run: supabase start
-          
+      # Create types directory if it doesn't exist
+      - name: Create Types Directory
+        run: mkdir -p lib/services/supabase/types
+
       - name: Install Dependencies
         run: npm install
         
       - name: Build Project
-        run: npm run build
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+          npm run build
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
