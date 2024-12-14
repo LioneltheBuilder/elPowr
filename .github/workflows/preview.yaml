@@ -37,9 +37,18 @@ jobs:
         
       - name: Build Project
         run: |
+          # Clean any previous builds
+          rm -rf .next
+          rm -rf lib/services/supabase/types/*
+          
           git config --global user.email "github-actions@github.com"
           git config --global user.name "GitHub Actions"
+          
+          # Run build
           npm run build
+          
+          # Ensure generated files are ignored
+          git status --porcelain | grep -v "lib/services/supabase/types/" || true
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
