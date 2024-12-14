@@ -34,6 +34,12 @@ jobs:
           git config --global core.safecrlf false
           npm ci --no-audit --ignore-scripts
 
+      # Set environment variables
+      - name: Set Environment Variables
+        run: |
+          echo "NEXT_PUBLIC_SUPABASE_URL=${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}" >> $GITHUB_ENV
+
       # Prepare directories and handle Supabase types
       - name: Prepare Build
         run: |
@@ -56,8 +62,8 @@ jobs:
           # Temporarily disable Husky
           HUSKY=0 CI=true npm run build
         env:
-          NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL }}
-          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
           SKIP_ENV_VALIDATION: true
         
       - name: Deploy to Vercel
