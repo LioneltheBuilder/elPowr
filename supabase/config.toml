@@ -1,6 +1,5 @@
 # Project Config
 project_id = "iprryfxddcybfmbjgiby"
-org_id = "your-org-id"
 
 [api]
 # Port to use for the API URL.

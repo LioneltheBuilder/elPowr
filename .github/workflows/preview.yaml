@@ -25,7 +25,7 @@ jobs:
       - name: Create Supabase config
         run: |
           mkdir -p supabase
-          echo "project_id = \"${{ vars.SUPABASE_PROJECT_ID }}\"" > supabase/config.toml
+          echo "project_id = \"iprryfxddcybfmbjgiby\"" > supabase/config.toml
           echo "[api]" >> supabase/config.toml
           echo "port = 54321" >> supabase/config.toml
 
@@ -45,8 +45,12 @@ jobs:
       - name: Generate Supabase Types
         run: |
           mkdir -p lib/services/supabase/types
+          echo "Checking config file:"
+          cat supabase/config.toml
           supabase init
-          supabase link --project-ref iprryfxddcybfmbjgiby
+          echo "Linking project..."
+          supabase link --project-ref iprryfxddcybfmbjgiby --debug
+          echo "Generating types..."
           supabase gen types typescript --linked > lib/services/supabase/types/index.ts
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
