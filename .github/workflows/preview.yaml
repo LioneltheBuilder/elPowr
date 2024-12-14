@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Fetch all history for git commands
+          fetch-depth: 0
       
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -28,27 +28,20 @@ jobs:
           echo 'project_id = "${{ vars.SUPABASE_PROJECT_ID }}"' > supabase/config.toml
           echo 'org_id = "${{ vars.SUPABASE_ORG_ID }}"' >> supabase/config.toml
 
-      # Create types directory if it doesn't exist
-      - name: Create Types Directory
-        run: mkdir -p lib/services/supabase/types
-
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
         
       - name: Build Project
         run: |
-          # Clean any previous builds
-          rm -rf .next
-          rm -rf lib/services/supabase/types/*
-          
-          git config --global user.email "github-actions@github.com"
-          git config --global user.name "GitHub Actions"
-          
+          # Clean build directories
+          rm -rf .next out
+
+          # Create necessary directories
+          mkdir -p lib/services/supabase/types
+          touch lib/services/supabase/types/.gitkeep
+
           # Run build
           npm run build
-          
-          # Ensure generated files are ignored
-          git status --porcelain | grep -v "lib/services/supabase/types/" || true
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
