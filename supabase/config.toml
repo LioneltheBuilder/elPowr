@@ -1,5 +1,5 @@
 # Project Config
-project_id = "${{ vars.SUPABASE_PROJECT_ID }}"
+project_id = "iprryfxddcybfmbjgiby"
 org_id = "your-org-id"
 
 [api]

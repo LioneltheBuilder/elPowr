@@ -45,8 +45,9 @@ jobs:
       - name: Generate Supabase Types
         run: |
           mkdir -p lib/services/supabase/types
-          supabase start
-          supabase gen types typescript --local > lib/services/supabase/types/index.ts
+          supabase init
+          supabase link --project-ref iprryfxddcybfmbjgiby
+          supabase gen types typescript --linked > lib/services/supabase/types/index.ts
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
         
