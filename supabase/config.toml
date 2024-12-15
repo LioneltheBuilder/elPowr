@@ -5,3 +5,7 @@ project_id = "iprryfxddcybfmbjgiby"
 # Port to use for the API URL.
 port = 54321
 schemes = ["http"] 
+
+[db]
+# Path to the seed file
+seed_file = "supabase/seed.sql"
