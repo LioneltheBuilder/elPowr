@@ -5,6 +5,7 @@ import { AuthProvider } from "@/src/presentation/context/AuthContext";
 import { Inter } from "next/font/google";
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://blhackathon.vercel.app'),
   title: "BL Hackathon",
   description: "Not your typical hackathon: Where code, culture, and community come together to shape a new future.",
   icons: {
