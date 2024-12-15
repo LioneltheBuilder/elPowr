@@ -17,18 +17,6 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Setup Supabase CLI
-        uses: supabase/setup-cli@v1
-        with:
-          version: latest
-
-      - name: Create Supabase config
-        run: |
-          mkdir -p supabase
-          echo "project_id = \"iprryfxddcybfmbjgiby\"" > supabase/config.toml
-          echo "[api]" >> supabase/config.toml
-          echo "port = 54321" >> supabase/config.toml
-
       - name: Install Dependencies
         run: |
           git config --global core.autocrlf false
@@ -41,13 +29,12 @@ jobs:
           echo "NEXT_PUBLIC_SUPABASE_URL=${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}" >> $GITHUB_ENV
           echo "NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}" >> $GITHUB_ENV
 
-      # Handle Supabase types
-      - name: Setup Supabase Types
+      # Ensure types directory exists with placeholder
+      - name: Setup Types
         run: |
-          # Create directory and placeholder file
           mkdir -p lib/services/supabase/types
           cat > lib/services/supabase/types/index.ts << EOL
-          // Generated types - placeholder for build
+          // Placeholder types file
           export type Database = {
             public: {
               Tables: Record<string, any>
@@ -56,12 +43,6 @@ jobs:
             }
           }
           EOL
-          
-          # Stage the types file to prevent Git errors
-          git add lib/services/supabase/types/index.ts
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-          git commit -m "chore: add placeholder types for build" --no-verify
 
       - name: Run Lint
         run: npm run lint
@@ -71,7 +52,6 @@ jobs:
         
       - name: Build Project
         run: |
-          # Temporarily disable Husky
           HUSKY=0 CI=true npm run build
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
