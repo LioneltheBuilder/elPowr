@@ -1,44 +1,101 @@
-import Image from "next/image";
+'use client'
+
+import { motion, useScroll, useTransform } from 'framer-motion';
+import React from 'react';
+import { HeroScene } from '../../three/scenes/HeroScene';
 import { Button } from "../../ui/button";
 
 export const HeroSection = () => {
+  const { scrollY } = useScroll()
+  const y1 = useTransform(scrollY, [0, 300], [0, 100])
+  const y2 = useTransform(scrollY, [0, 300], [0, -100])
+  const opacity = useTransform(scrollY, [0, 200], [1, 0])
+
   return (
-    <div className="relative max-w-screen-xl mx-auto pt-24 px-4">
-      <div className="relative max-w-4xl mx-auto text-center space-y-8">
-        {/* Coming Soon Label */}
-        <div className="inline-flex items-center rounded-full border border-[#29d1e0]/20 bg-[#29d1e0]/10 px-3 py-1 text-sm text-[#29d1e0] code-font">
-          <span className="mr-1">+</span> Coming Soon
-        </div>
+    <div className="relative h-screen w-full overflow-hidden">
+      <HeroScene />
+      <div className="absolute inset-0 z-10">
+        <motion.div 
+          style={{ y: y1, opacity }}
+          className="relative max-w-4xl mx-auto text-center space-y-8 pt-24 px-4"
+        >
+          <div className="backdrop-blur-md bg-black/30 rounded-2xl p-8 shadow-2xl border border-white/5">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="inline-flex items-center rounded-full border border-[#29d1e0]/20 bg-[#29d1e0]/10 px-3 py-1 text-sm text-[#29d1e0] code-font"
+            >
+              <span className="mr-1">+</span> Coming Soon
+            </motion.div>
 
-        {/* Main Heading */}
-        <h1 className="text-5xl md:text-7xl leading-tight tracking-tight">
-          <span className="text-[#29d1e0]">Build</span>{" "}
-          <span className="text-[#a2d719]">Innovate</span>{" "}
-          <span className="text-[#f29b1b]">Connect</span>
-          <span className="text-[#ee0672]">;</span>
-        </h1>
+            <motion.h1 
+              style={{ y: y2 }}
+              className="text-5xl md:text-7xl leading-tight tracking-tight mt-8"
+            >
+              {['Not', 'your', 'typical', 'hackathon'].map((text, index) => {
+                const colors = ['#29d1e0', '#29d1e0', '#a2d719', '#f29b1b'];
+                const delays = [0.7, 0.7, 0.9, 1.1];
+                
+                return (
+                  <React.Fragment key={index}>
+                    <motion.div className="relative inline-block">
+                      <motion.span
+                        initial={{ 
+                          opacity: 0,
+                          filter: 'blur(10px)',
+                          y: 20,
+                          textShadow: '0 0 0px currentColor'
+                        }}
+                        animate={{ 
+                          opacity: [0, 0.5, 1],
+                          filter: ['blur(10px)', 'blur(0px)', 'blur(0px)'],
+                          y: [20, 0, 0],
+                          textShadow: ['0 0 20px currentColor', '0 0 10px currentColor', '0 0 20px currentColor']
+                        }}
+                        transition={{
+                          duration: 1.5,
+                          times: [0, 0.7, 1],
+                          delay: delays[index],
+                          ease: "easeOut",
+                          textShadow: {
+                            repeat: Infinity,
+                            duration: 2,
+                            ease: "easeInOut"
+                          }
+                        }}
+                        className={`text-[${colors[index]}] relative`}
+                      >
+                        {text}
+                      </motion.span>
+                    </motion.div>
+                    {index < 3 && " "}
+                  </React.Fragment>
+                );
+              })}
+            </motion.h1>
 
-        {/* Subtitle */}
-        <p className="text-white/60 text-xl md:text-2xl max-w-2xl mx-auto font-light">
-          Join us for an extraordinary hackathon experience where innovation meets opportunity.
-        </p>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.5 }}
+              className="text-white/90 text-xl md:text-2xl max-w-2xl mx-auto font-light mt-8"
+            >
+              Where code, culture, and community come together to shape a new future
+            </motion.p>
 
-        <div className="flex justify-center gap-4">
-          <Button className="h-12 px-6 bg-[#29d1e0] text-[#202731] hover:bg-[#29d1e0]/90 font-medium text-lg">
-            Register Interest
-          </Button>
-        </div>
-      </div>
-
-      <div className="mt-16">
-        <Image
-          src="/community/community1.jpg"
-          alt="Hackathon Event"
-          width={1200}
-          height={600}
-          className="rounded-lg border border-[#29d1e0]/10 object-cover h-[500px] w-full"
-          priority
-        />
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.7 }}
+              className="flex justify-center gap-4 mt-8"
+            >
+              <Button className="h-12 px-6 bg-[#29d1e0] text-[#202731] hover:bg-[#29d1e0]/90 font-medium text-lg shadow-lg hover:shadow-xl transition-all">
+                Register Interest
+              </Button>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );

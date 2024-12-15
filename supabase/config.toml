@@ -1,0 +1,6 @@
+# Project Config
+project_id = "iprryfxddcybfmbjgiby"
+
+[api]
+# Port to use for the API URL.
+port = 54321
