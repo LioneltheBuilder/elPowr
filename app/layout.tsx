@@ -8,16 +8,25 @@ export const metadata: Metadata = {
   title: "BL Hackathon",
   description: "Not your typical hackathon: Where code, culture, and community come together to shape a new future.",
   icons: {
-    icon: "/blhackathon/BLhackathon_Icon_COLOR (2).png",
-    shortcut: "/blhackathon/BLhackathon_Icon_COLOR (2).png",
-    apple: "/blhackathon/BLhackathon_Icon_COLOR (2).png",
+    icon: {
+      url: "/blhackathon/blhackathon-icon.png",
+      type: "image/png"
+    },
+    shortcut: {
+      url: "/blhackathon/blhackathon-icon.png",
+      type: "image/png"
+    },
+    apple: {
+      url: "/blhackathon/blhackathon-icon.png",
+      type: "image/png"
+    }
   },
   openGraph: {
     title: "BL Hackathon",
     description: "Not your typical hackathon: Where code, culture, and community come together to shape a new future.",
     images: [
       {
-        url: "/blhackathon/BLhackathon_Icon_COLOR (2).png",
+        url: "/blhackathon/blhackathon-icon.png",
         width: 1200,
         height: 630,
         alt: "BL Hackathon",
@@ -28,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "BL Hackathon",
     description: "Not your typical hackathon: Where code, culture, and community come together to shape a new future.",
-    images: ["/blhackathon/BLhackathon_Icon_COLOR (2).png"],
+    images: ["/blhackathon/blhackathon-icon.png"],
   },
 };
 const inter = Inter({ subsets: ["latin"] });
