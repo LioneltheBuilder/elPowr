@@ -23,27 +23,6 @@ jobs:
           git config --global core.safecrlf false
           npm ci --no-audit --ignore-scripts
 
-      # Set environment variables
-      - name: Set Environment Variables
-        run: |
-          echo "NEXT_PUBLIC_SUPABASE_URL=${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}" >> $GITHUB_ENV
-          echo "NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}" >> $GITHUB_ENV
-
-      # Ensure types directory exists with placeholder
-      - name: Setup Types
-        run: |
-          mkdir -p lib/services/supabase/types
-          cat > lib/services/supabase/types/index.ts << EOL
-          // Placeholder types file
-          export type Database = {
-            public: {
-              Tables: Record<string, any>
-              Views: Record<string, any>
-              Functions: Record<string, any>
-            }
-          }
-          EOL
-
       - name: Run Lint
         run: npm run lint
 
@@ -53,10 +32,6 @@ jobs:
       - name: Build Project
         run: |
           HUSKY=0 CI=true npm run build
-        env:
-          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
-          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
-          SKIP_ENV_VALIDATION: true
         
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v25
