@@ -9,18 +9,9 @@ export const metadata: Metadata = {
   title: "BL Hackathon",
   description: "Not your typical hackathon: Where code, culture, and community come together to shape a new future.",
   icons: {
-    icon: {
-      url: "/blhackathon/blhackathon-icon.png",
-      type: "image/png"
-    },
-    shortcut: {
-      url: "/blhackathon/blhackathon-icon.png",
-      type: "image/png"
-    },
-    apple: {
-      url: "/blhackathon/blhackathon-icon.png",
-      type: "image/png"
-    }
+    icon: [
+      { url: "/favicon.png", sizes: "any" },
+    ],
   },
   openGraph: {
     title: "BL Hackathon",
