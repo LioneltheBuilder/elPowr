@@ -22,10 +22,7 @@ jobs:
           node-version: '18'
 
       - name: Install Dependencies
-        run: |
-          git config --global core.autocrlf false
-          git config --global core.safecrlf false
-          npm ci --no-audit --ignore-scripts
+        run: npm ci
 
       - name: Run Lint
         run: npm run lint
@@ -34,8 +31,7 @@ jobs:
         run: npm run typecheck
         
       - name: Build Project
-        run: |
-          HUSKY=0 CI=true npm run build
+        run: npm run build
         
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v25
