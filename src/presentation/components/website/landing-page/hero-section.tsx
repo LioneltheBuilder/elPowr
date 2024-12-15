@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion';
+import React from 'react';
 import { HeroScene } from '../../three/scenes/HeroScene';
 import { Button } from "../../ui/button";
 
@@ -32,38 +33,46 @@ export const HeroSection = () => {
               style={{ y: y2 }}
               className="text-5xl md:text-7xl leading-tight tracking-tight mt-8"
             >
-              <motion.span 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
-                className="text-[#29d1e0] drop-shadow-[0_2px_8px_rgba(41,209,224,0.5)]"
-              >
-                Not your
-              </motion.span>{" "}
-              <motion.span 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.9 }}
-                className="text-[#a2d719] drop-shadow-[0_2px_8px_rgba(162,215,25,0.5)]"
-              >
-                typical
-              </motion.span>{" "}
-              <motion.span 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.1 }}
-                className="text-[#f29b1b] drop-shadow-[0_2px_8px_rgba(242,155,27,0.5)]"
-              >
-                hackathon
-              </motion.span>
-              <motion.span 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.3 }}
-                className="text-[#ee0672] drop-shadow-[0_2px_8px_rgba(238,6,114,0.5)]"
-              >
-                !
-              </motion.span>
+              {['Not', 'your', 'typical', 'hackathon'].map((text, index) => {
+                const colors = ['#29d1e0', '#29d1e0', '#a2d719', '#f29b1b'];
+                const delays = [0.7, 0.7, 0.9, 1.1];
+                
+                return (
+                  <React.Fragment key={index}>
+                    <motion.div className="relative inline-block">
+                      <motion.span
+                        initial={{ 
+                          opacity: 0,
+                          filter: 'blur(10px)',
+                          y: 20,
+                          textShadow: '0 0 0px currentColor'
+                        }}
+                        animate={{ 
+                          opacity: [0, 0.5, 1],
+                          filter: ['blur(10px)', 'blur(0px)', 'blur(0px)'],
+                          y: [20, 0, 0],
+                          textShadow: ['0 0 20px currentColor', '0 0 10px currentColor', '0 0 20px currentColor']
+                        }}
+                        transition={{
+                          duration: 1.5,
+                          times: [0, 0.7, 1],
+                          delay: delays[index],
+                          ease: "easeOut",
+                          textShadow: {
+                            repeat: Infinity,
+                            duration: 2,
+                            ease: "easeInOut"
+                          }
+                        }}
+                        className={`text-[${colors[index]}] relative`}
+                      >
+                        {text}
+                      </motion.span>
+                    </motion.div>
+                    {index < 3 && " "}
+                  </React.Fragment>
+                );
+              })}
             </motion.h1>
 
             <motion.p 

@@ -1,7 +1,7 @@
 'use client'
 
 import { useFrame } from '@react-three/fiber'
-import { useMemo, useRef } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { Mesh, Points } from 'three'
 
@@ -41,27 +41,28 @@ const BrandShape = () => {
  */
 export const ParticleField = () => {
   const points = useRef<Points>(null)
-  const particleCount = 1000
+  const particleCount = 2000
+  
+  // Animation state
+  const [isAnimating, setIsAnimating] = useState(true)
 
   // Memoized particle positions and colors
   const particlePositions = useMemo(() => {
     const positions = new Float32Array(particleCount * 3)
     const colors = new Float32Array(particleCount * 3)
     const brandColors = [
-      new THREE.Color('#29d1e0').multiplyScalar(0.8), // Cyan
-      new THREE.Color('#a2d719').multiplyScalar(0.8), // Green
-      new THREE.Color('#f29b1b').multiplyScalar(0.8), // Orange
-      new THREE.Color('#ee0672').multiplyScalar(0.8)  // Pink
+      new THREE.Color('#29d1e0'),
+      new THREE.Color('#a2d719'),
+      new THREE.Color('#f29b1b')
     ]
 
-    // Generate spherical particle distribution
     for (let i = 0; i < particleCount; i++) {
-      const radius = 10
-      const innerRadius = 3
+      // Create a more concentrated particle field near text areas
       const theta = Math.random() * Math.PI * 2
       const phi = Math.acos((Math.random() * 2) - 1)
       
-      const r = Math.max(innerRadius, radius * Math.random())
+      // Adjust these values to match text positioning
+      const r = 5 + Math.random() * 5
       
       positions[i * 3] = r * Math.sin(phi) * Math.cos(theta)
       positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta)
@@ -76,40 +77,51 @@ export const ParticleField = () => {
     return { positions, colors }
   }, [])
 
-  // Animate particle field
   useFrame((state) => {
+    if (!points.current || !isAnimating) return
+    
     const time = state.clock.getElapsedTime()
-    points.current!.rotation.y = time * 0.05
-    points.current!.rotation.x = Math.sin(time * 0.1) * 0.1
+    const positions = points.current.geometry.attributes.position.array as Float32Array
+    
+    // Create a matrix-like falling effect
+    for (let i = 0; i < particleCount; i++) {
+      const idx = i * 3
+      positions[idx + 1] -= 0.02 // Falling speed
+      
+      // Reset particles when they fall too low
+      if (positions[idx + 1] < -5) {
+        positions[idx + 1] = 5
+      }
+    }
+    
+    points.current.geometry.attributes.position.needsUpdate = true
+    points.current.rotation.y = time * 0.05
   })
 
   return (
-    <group>
-      <BrandShape />
-      <points ref={points}>
-        <bufferGeometry>
-          <bufferAttribute
-            attach="attributes-position"
-            count={particleCount}
-            array={particlePositions.positions}
-            itemSize={3}
-          />
-          <bufferAttribute
-            attach="attributes-color"
-            count={particleCount}
-            array={particlePositions.colors}
-            itemSize={3}
-          />
-        </bufferGeometry>
-        <pointsMaterial
-          size={0.15}
-          vertexColors
-          transparent
-          opacity={0.5}
-          sizeAttenuation
-          blending={THREE.AdditiveBlending}
+    <points ref={points}>
+      <bufferGeometry>
+        <bufferAttribute
+          attach="attributes-position"
+          count={particleCount}
+          array={particlePositions.positions}
+          itemSize={3}
         />
-      </points>
-    </group>
+        <bufferAttribute
+          attach="attributes-color"
+          count={particleCount}
+          array={particlePositions.colors}
+          itemSize={3}
+        />
+      </bufferGeometry>
+      <pointsMaterial
+        size={0.1}
+        vertexColors
+        transparent
+        opacity={0.6}
+        sizeAttenuation
+        blending={THREE.AdditiveBlending}
+      />
+    </points>
   )
 } 
