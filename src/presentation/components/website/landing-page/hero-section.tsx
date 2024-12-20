@@ -1,15 +1,31 @@
 'use client'
 
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import React from 'react';
+import React, { useState } from 'react';
 import { HeroScene } from '../../three/scenes/HeroScene';
 import { Button } from "../../ui/button";
+
 
 export const HeroSection = () => {
   const { scrollY } = useScroll()
   const y1 = useTransform(scrollY, [0, 300], [0, 100])
   const y2 = useTransform(scrollY, [0, 300], [0, -100])
   const opacity = useTransform(scrollY, [0, 200], [1, 0])
+  const [email, setEmail] = useState('')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const supabase = createClientComponentClient()
+
+  const handleSubscribe = async (email: string) => {
+    try {
+      setStatus('loading')
+      await supabase.from('email_subscriptions').insert([{ email }])
+      setStatus('success')
+      setEmail('')
+    } catch (error) {
+      setStatus('error')
+    }
+  }
 
   return (
     <div className="relative h-screen w-full overflow-hidden">
@@ -88,11 +104,32 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.7 }}
-              className="flex justify-center gap-4 mt-8"
+              className="flex justify-center mt-8"
             >
-              <Button className="h-12 px-6 bg-[#29d1e0] text-[#202731] hover:bg-[#29d1e0]/90 font-medium text-lg shadow-lg hover:shadow-xl transition-all">
-                Register Interest
-              </Button>
+              <div className="flex gap-4 max-w-md w-full flex-col">
+                <div className="flex gap-4">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    className="flex-1 h-12 px-4 bg-white/10 border border-white/20 rounded-lg text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[#29d1e0]"
+                  />
+                  <Button 
+                    onClick={() => handleSubscribe(email)}
+                    disabled={status === 'loading'}
+                    className="h-12 px-6 bg-[#29d1e0] text-[#202731] hover:bg-[#29d1e0]/90 font-medium text-lg shadow-lg hover:shadow-xl transition-all whitespace-nowrap disabled:opacity-50"
+                  >
+                    {status === 'loading' ? 'Registering...' : 'Register Interest'}
+                  </Button>
+                </div>
+                {status === 'success' && (
+                  <p className="text-[#a2d719] text-sm">Thanks for registering your interest!</p>
+                )}
+                {status === 'error' && (
+                  <p className="text-red-500 text-sm">Something went wrong. Please try again.</p>
+                )}
+              </div>
             </motion.div>
           </div>
         </motion.div>
