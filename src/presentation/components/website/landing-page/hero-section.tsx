@@ -107,7 +107,7 @@ export const HeroSection = () => {
               className="flex justify-center mt-8"
             >
               <div className="flex gap-4 max-w-md w-full flex-col">
-                <div className="flex gap-4">
+                <div className="flex flex-col sm:flex-row gap-4">
                   <input
                     type="email"
                     value={email}
@@ -118,13 +118,13 @@ export const HeroSection = () => {
                   <Button 
                     onClick={() => handleSubscribe(email)}
                     disabled={status === 'loading'}
-                    className="h-12 px-6 bg-[#29d1e0] text-[#202731] hover:bg-[#29d1e0]/90 font-medium text-lg shadow-lg hover:shadow-xl transition-all whitespace-nowrap disabled:opacity-50"
+                    className="h-12 px-6 bg-[#29d1e0] text-[#202731] hover:bg-[#29d1e0]/90 font-medium text-base sm:text-lg shadow-lg hover:shadow-xl transition-all whitespace-nowrap disabled:opacity-50"
                   >
-                    {status === 'loading' ? 'Registering...' : 'Register Interest'}
+                    {status === 'loading' ? 'Please wait...' : 'Join Now'}
                   </Button>
                 </div>
                 {status === 'success' && (
-                  <p className="text-[#a2d719] text-sm">Thanks for registering your interest!</p>
+                  <p className="text-[#a2d719] text-sm">Thanks, see you soon!</p>
                 )}
                 {status === 'error' && (
                   <p className="text-red-500 text-sm">Something went wrong. Please try again.</p>
