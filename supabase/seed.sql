@@ -1,2 +1,0 @@
--- Initial seed file
--- Add your database seeds here when you start creating tables
