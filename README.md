@@ -1,4 +1,4 @@
-# Digital Builders
+# el powr
 [![Screenshot-2024-11-25-132620.png](https://i.postimg.cc/fbHSCrMr/Screenshot-2024-11-25-132620.png)](https://postimg.cc/kVb5Xw6Q)
 
 ## Tech Stack
@@ -28,5 +28,5 @@
 | **Domain**           | Core business models, rules, and interfaces.                                                                 | `User.ts`, `UserRepository.ts`             |
 | **Infrastructure**   | Implementation of external dependencies like Supabase and APIs.                                              | `SupabaseUserRepository.ts`, `supabaseClient.ts` |
 | **Presentation**     | UI components and pages for user interaction.                                                                | `UserForm.tsx`, `create.tsx`               |
-# blhackathon
-not your typical hackathon
+# el powr
+let there be powr
