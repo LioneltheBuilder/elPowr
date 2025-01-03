@@ -1,4 +1,4 @@
-name: Vercel Preview Deployment
+name: el powr Preview Deployment
 on:
   push:
     branches-ignore:
